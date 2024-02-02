@@ -54,17 +54,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LogiN Page</title>
+    <title>Login Page</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e6e6e6;
             margin: 0;
             display: flex;
             justify-content: center;
@@ -74,9 +73,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         .login-container {
             background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
             max-width: 400px;
             width: 100%;
             text-align: center;
@@ -89,28 +88,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         .login-container label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             color: #555;
         }
 
         .login-container input {
             width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
+            padding: 12px;
+            margin-bottom: 20px;
             box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
 
         .login-container button {
-            background-color: #4caf50;
+            background-color: #3498db;
             color: #fff;
-            padding: 10px 20px;
+            padding: 12px 20px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
         }
 
         .login-container button:hover {
-            background-color: #45a049;
+            background-color: #2980b9;
+        }
+
+        .error-message {
+            color: #d9534f;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -119,7 +125,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="login-container">
     <h2>Login</h2>
     <?php if(isset($error)) { ?>
-        <p style="color: red;"><?php echo $error; ?></p>
+        <p class="error-message"><?php echo $error; ?></p>
     <?php } ?>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <label for="username">Username:</label>
